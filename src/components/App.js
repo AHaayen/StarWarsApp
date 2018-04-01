@@ -11,15 +11,9 @@ class App extends Component {
       currentPage:1,
       characters: []
     }
-    this.getCharacters = this.getCharacters.bind(this);
-    this.getCharacter = this.getCharacter.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.nextPage = this.nextPage.bind(this);
-    this.previousPage = this.previousPage.bind(this);
-
   }
 
-  getCharacters() {
+  getCharacters = () => {
     starWarsService.getCharacters(this.state.currentPage).then((response) => {
       this.setState({
         characters:response.data.results
@@ -29,7 +23,7 @@ class App extends Component {
     })
   }
 
-  getCharacter(){
+  getCharacter = () =>{
     starWarsService.getCharacter(this.state.searchString).then((response)=> {
       this.setState({
         characters:response.data.results
@@ -37,7 +31,7 @@ class App extends Component {
     })
   }
 
-  nextPage(){
+  nextPage = () =>{
     const page = this.state.currentPage;
     this.setState({
       currentPage: page + 1
@@ -45,7 +39,7 @@ class App extends Component {
     this.getCharacters();
   }
 
-  previousPage(){
+  previousPage = () =>{
     const page = this.state.currentPage;
     if(page === 1){
       return
@@ -57,7 +51,7 @@ class App extends Component {
     this.getCharacters();
   }
 
-  handleChange(event) {
+  handleChange = (event) =>{
     this.setState({ searchString: event.target.value });
   }
   render() {
