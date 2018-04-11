@@ -62,7 +62,7 @@ class App extends Component {
           <h1 className="App-title">Star wars characters</h1>
         </header>
         <br />
-     
+     <p>Search for you Star Wars Character</p>
         <input type="text"   className="form-control" value={this.state.searchString} onChange={this.handleChange} />
         <button className="btn btn-primary" onClick={this.getCharacter}>
         Search
@@ -77,6 +77,8 @@ class App extends Component {
             })
           }
           <Pagination previousPage={this.previousPage} nextPage={this.nextPage} />
+          <br />
+          <h2>If you don't know any characters, follow <a href="https://en.wikipedia.org/wiki/List_of_Star_Wars_characters">this</a> link.</h2>
       </div>
     );
   }
